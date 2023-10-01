@@ -1,6 +1,7 @@
 package task;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,9 @@ public class Main {
 		}
 		try {
 			System.out.println(Methods.deserialize(file));
-		} catch (Exception e) {
+		} catch (IOException e) {
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
@@ -40,7 +43,9 @@ public class Main {
 		}
 		try {
 			System.out.println(Methods.deserializeList(file2));
-		} catch (Exception e) {
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
