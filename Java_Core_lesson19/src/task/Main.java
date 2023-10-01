@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Main {
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args){
 		
 		Employee obj = new Employee();
 		obj.setName("Oleksandr");
@@ -14,8 +14,16 @@ public class Main {
 		obj.setSalary(40000);
 		
 		File file = new File("serializable.txt");
-		Methods.serialize(file, obj);
-		System.out.println(Methods.deserialize(file));
+		try {
+			Methods.serialize(file, obj);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			System.out.println(Methods.deserialize(file));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println();
 		
@@ -25,8 +33,16 @@ public class Main {
 		list.add(new Employee());
 		
 		File file2 = new File("serializableList.txt");
-		Methods.serializeList(file2, list);
-		System.out.println(Methods.deserializeList(file2));
+		try {
+			Methods.serializeList(file2, list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			System.out.println(Methods.deserializeList(file2));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
